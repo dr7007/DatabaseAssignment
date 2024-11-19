@@ -8,9 +8,9 @@ using UnityEngine.Networking;
 
 public class DBLogin : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField idtmp;   //아이디 입력 UI InputField
-    [SerializeField] private TMP_InputField passwordtmp;   //비밀번호 입력 UI InputField
-    [SerializeField] private TextMeshProUGUI Errortmp;  //로그인 실패 시 이유 출력할 텍스트
+    [SerializeField] private InputField idtmp;   //아이디 입력 UI InputField
+    [SerializeField] private InputField passwordtmp;   //비밀번호 입력 UI InputField
+    [SerializeField] private TextMeshProUGUI errortmp;  //로그인 실패 시 이유 출력할 텍스트
 
     private string id;  //idtmp에 입력한 값을 사용하기 위해
     private string password;    //passwordtmp에 입력한 값을 사용하기 위해
@@ -30,19 +30,19 @@ public class DBLogin : MonoBehaviour
         switch (error)
         {
             case LoginError.None:
-                Errortmp.text = "ID 또는 비밀번호를 입력하지 않았습니다.";
+                errortmp.text = "ID 또는 비밀번호를 입력하지 않았습니다.";
                 break;
             case LoginError.IDNotFound:
-                Errortmp.text = "아이디가 존재하지 않습니다.";
+                errortmp.text = "아이디가 존재하지 않습니다.";
                 break;
             case LoginError.IncorrectPassword:
-                Errortmp.text = "비밀번호가 옳지 않습니다.";
+                errortmp.text = "비밀번호가 옳지 않습니다.";
                 break;
             case LoginError.ConnectionError:
-                Errortmp.text = "서버에 연결되어있지 않습니다.";
+                errortmp.text = "서버에 연결되어있지 않습니다.";
                 break;
             default:
-                Errortmp.text = "";
+                errortmp.text = "";
                 break;
         }
     }
@@ -92,7 +92,7 @@ public class DBLogin : MonoBehaviour
             }
             else //로그인 성공 시
             {
-                Errortmp.text = "로그인 성공";
+                errortmp.text = "로그인 성공";
             }
         }
     }
