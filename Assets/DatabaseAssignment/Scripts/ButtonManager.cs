@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    public Button Login_BT;
+   // public Button Login_BT;
 
     public void LoginToScene()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainScene");
     }
 }
