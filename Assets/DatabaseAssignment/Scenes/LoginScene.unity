@@ -891,7 +891,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 1458799488, guid: 782e5af2bf2b3e34c839f5c6ccc06cc5, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -972,7 +972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727920314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1743,9 +1743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idtmp: {fileID: 2142468982}
-  passwordtmp: {fileID: 916246323}
-  errortmp: {fileID: 1119542062}
+  idtmp: {fileID: 0}
+  passwordtmp: {fileID: 0}
+  Errortmp: {fileID: 0}
 --- !u!1 &1513256951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,9 +1958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idtmp: {fileID: 0}
-  passwordtmp: {fileID: 0}
-  errortmp: {fileID: 0}
+  idtmp: {fileID: 2142468982}
+  passwordtmp: {fileID: 916246323}
+  Errortmp: {fileID: 0}
 --- !u!114 &1527900709
 MonoBehaviour:
   m_ObjectHideFlags: 0
