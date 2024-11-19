@@ -8,8 +8,8 @@ using UnityEngine.Networking;
 
 public class DBLogin : MonoBehaviour
 {
-    [SerializeField] private InputField idtmp;   //아이디 입력 UI InputField
-    [SerializeField] private InputField passwordtmp;   //비밀번호 입력 UI InputField
+    [SerializeField] private TMP_InputField idtmp;   //아이디 입력 UI InputField
+    [SerializeField] private TMP_InputField passwordtmp;   //비밀번호 입력 UI InputField
     [SerializeField] private TextMeshProUGUI Errortmp;  //로그인 실패 시 이유 출력할 텍스트
 
     private string id;  //idtmp에 입력한 값을 사용하기 위해
