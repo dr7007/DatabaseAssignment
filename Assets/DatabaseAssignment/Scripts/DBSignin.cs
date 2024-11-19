@@ -19,7 +19,7 @@ public class DBSignin : MonoBehaviour
     private const string loginUri = "http://127.0.0.1/DASignin.php";   //값 가져올 php파일
 
     private enum LoginError //로그인 오류 발생 시
-    { 
+    {
         None,   //idtmp, passwordtmp 둘다 or 둘 중 하나에 값이 없을 경우
         IDNotFound, //idtmp 값과 DB의 ID값이 동일하지 않는 경우
         IncorrectPassword,  //passwordtmp 값과 DB의 Password값이 동일하지 않는 경우
@@ -58,7 +58,7 @@ public class DBSignin : MonoBehaviour
         id = idtmp.text;    //id의 값을 초기화
         password = passwordtmp.text;    //password값을 초기화
 
-        if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(password))  //값이 비었을 때
+        if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(password))  //값이 비었을 때
         {
             ErrorMessage(LoginError.None);  //None 오류메세지 표시
             yield break;
@@ -83,17 +83,22 @@ public class DBSignin : MonoBehaviour
             //서버 응답 받을 시
             string response = www.downloadHandler.text.Trim();  //서버 응답 받기
 
-            if(response == "IDNotFound")    //ID가 존재하지 않을 시
+            if (response == "IDNotFound")    //ID가 존재하지 않을 시
             {
                 ErrorMessage(LoginError.IDNotFound);
             }
-            else if(response  == "IncorrectPassword")   //비밀번호가 존재하지 않을 시
+            else if (response == "IncorrectPassword")   //비밀번호가 존재하지 않을 시
             {
                 ErrorMessage(LoginError.IncorrectPassword);
             }
-            else //로그인 성공 시
+            else if (response == "Success") //로그인 성공 시
             {
                 errortmp.text = "로그인 성공";
+                SceneManager.LoadScene("Mainscene");
+            }
+            else
+            {
+                ErrorMessage(LoginError.None);
             }
         }
     }
