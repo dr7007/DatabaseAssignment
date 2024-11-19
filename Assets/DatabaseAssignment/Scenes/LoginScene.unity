@@ -1743,11 +1743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Login_Access: {fileID: 0}
-  Login_Fail: {fileID: 0}
-  ID_Input: {fileID: 0}
-  PW_Input: {fileID: 0}
-  Sign_up_BT: {fileID: 0}
+  idtmp: {fileID: 2142468982}
+  passwordtmp: {fileID: 916246323}
+  errortmp: {fileID: 1119542062}
 --- !u!1 &1513256951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,11 +1958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Login_Access: {fileID: 727920313}
-  Login_Fail: {fileID: 0}
-  ID_Input: {fileID: 2142468982}
-  PW_Input: {fileID: 916246323}
-  Sign_up_BT: {fileID: 127204488}
+  idtmp: {fileID: 0}
+  passwordtmp: {fileID: 0}
+  errortmp: {fileID: 0}
 --- !u!114 &1527900709
 MonoBehaviour:
   m_ObjectHideFlags: 0
