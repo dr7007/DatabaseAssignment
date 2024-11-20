@@ -8,6 +8,18 @@ public class ButtonManager : MonoBehaviour
 {
     // public Button Login_BT;
     public Image SignImage;
+    public Image Errorbox;
+
+    
+    public void ErrorBoxOff()
+    {
+        Errorbox.gameObject.SetActive(false);
+    }
+
+    public void ErrorBox()
+    {
+        Errorbox.gameObject.SetActive(true);
+    }
 
     public void IDCheck()
     {
