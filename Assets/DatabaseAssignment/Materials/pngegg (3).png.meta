@@ -148,9 +148,9 @@ TextureImporter:
       name: pngegg (3)_1
       rect:
         serializedVersion: 2
-        x: 623
+        x: 624
         y: 675
-        width: 222
+        width: 221
         height: 237
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
