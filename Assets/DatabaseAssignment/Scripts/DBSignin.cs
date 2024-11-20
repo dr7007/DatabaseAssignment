@@ -6,12 +6,14 @@ using UnityEngine;
 using TMPro;
 
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class DBSignin : MonoBehaviour
 {
     [SerializeField] private TMP_InputField idtmp;   //아이디 입력 UI InputField
     [SerializeField] private TMP_InputField passwordtmp;   //비밀번호 입력 UI InputField
     [SerializeField] private TextMeshProUGUI errortmp;  //로그인 실패 시 이유 출력할 텍스트
+    [SerializeField] private Image loginpopup;  //로그인 성공, 실패에 대한 팝업
 
     private string id;  //idtmp에 입력한 값을 사용하기 위해
     private string password;    //passwordtmp에 입력한 값을 사용하기 위해
@@ -46,11 +48,23 @@ public class DBSignin : MonoBehaviour
                 errortmp.text = "";
                 break;
         }
+
+        //로그인 실패 시 1초 후 팝업 비활성화
+        StartCoroutine(FailLoginPopupDelay());
+    }
+
+    private IEnumerator FailLoginPopupDelay()
+    {
+        yield return new WaitForSeconds(2f);
+
+        loginpopup.gameObject.SetActive(false);
     }
 
     public void OnLoginButtonClicked()  //Login버튼 클릭 시
     {
         StartCoroutine(LoginCoroutine(id, password));
+        errortmp.text = "로그인 중...";
+        loginpopup.gameObject.SetActive(true);
     }
 
     private IEnumerator LoginCoroutine(string id, string password)  //로그인 코루틴
@@ -94,7 +108,6 @@ public class DBSignin : MonoBehaviour
             else if (response == "Success") //로그인 성공 시
             {
                 errortmp.text = "로그인 성공";
-                SceneManager.LoadScene("Mainscene");
             }
             else
             {

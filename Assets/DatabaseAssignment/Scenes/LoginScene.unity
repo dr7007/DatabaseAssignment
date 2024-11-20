@@ -305,9 +305,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1527900708}
-        m_TargetAssemblyTypeName: DBLogin, Assembly-CSharp
-        m_MethodName: LoginButtonClick
+      - m_Target: {fileID: 1180617297}
+        m_TargetAssemblyTypeName: DBSignin, Assembly-CSharp
+        m_MethodName: OnLoginButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727920314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 1147020344}
   - component: {fileID: 1147020345}
   m_Layer: 0
-  m_Name: DBSignin
+  m_Name: DBSignupManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,12 +1620,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147020343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 745300eb0c2cb5a40ac728e90f156aab, type: 3}
+  m_Script: {fileID: 11500000, guid: d3b607fdc9c842d46ab10fcae7219894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idtmp: {fileID: 0}
-  passwordtmp: {fileID: 0}
-  errortmp: {fileID: 0}
 --- !u!1 &1154788500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1755,7 @@ GameObject:
   - component: {fileID: 1180617296}
   - component: {fileID: 1180617297}
   m_Layer: 0
-  m_Name: DBLogin
+  m_Name: DBSigninManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1791,11 +1788,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idtmp: {fileID: 0}
-  passwordtmp: {fileID: 0}
-  errortmp: {fileID: 0}
-  id: 
-  password: 
+  idtmp: {fileID: 2142468982}
+  passwordtmp: {fileID: 916246323}
+  errortmp: {fileID: 1119542062}
+  loginpopup: {fileID: 727920315}
 --- !u!1 &1513256951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,8 +1960,6 @@ GameObject:
   - component: {fileID: 1527900707}
   - component: {fileID: 1527900710}
   - component: {fileID: 1527900709}
-  - component: {fileID: 1527900708}
-  - component: {fileID: 1527900711}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1997,23 +1991,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1527900708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527900706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idtmp: {fileID: 0}
-  passwordtmp: {fileID: 0}
-  errortmp: {fileID: 0}
-  id: 
-  password: 
 --- !u!114 &1527900709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,21 +2029,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527900706}
   m_CullTransparentMesh: 1
---- !u!114 &1527900711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527900706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 745300eb0c2cb5a40ac728e90f156aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idtmp: {fileID: 2142468982}
-  passwordtmp: {fileID: 916246323}
-  errortmp: {fileID: 2074176106}
 --- !u!1 &1679237544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,8 +2972,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 330585546}
   - {fileID: 410087041}
-  - {fileID: 1180617296}
-  - {fileID: 1147020344}
   - {fileID: 20722257}
   - {fileID: 2017503371}
+  - {fileID: 1180617296}
+  - {fileID: 1147020344}
   - {fileID: 680269743}
