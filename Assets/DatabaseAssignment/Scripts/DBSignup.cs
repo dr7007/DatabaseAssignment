@@ -118,6 +118,7 @@ public class DBSignup : MonoBehaviour
             }
             else
             {
+                Debug.Log(signResponse);
                 SignErrorMessages(SignupError.None);
             }
         }
