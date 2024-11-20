@@ -29,7 +29,6 @@ public class DBSignup : MonoBehaviour
     [SerializeField] private Image signuppopup;                         //가입 팝업
     [SerializeField] private Button signuppopupBtn;                     //가입 팝업 버튼
     [SerializeField] private Button signupBtn;                          //가입 버튼
-    [SerializeField] private Button signCancelBtn;                      //취소 버튼
 
     //확인용 변수
     private string signCorrectPW;     //비밀번호 확인 때 사용
@@ -78,11 +77,6 @@ public class DBSignup : MonoBehaviour
         StartCoroutine(SignUpCoroutine(userInfo));
     }
 
-    public void OnClickSignCancelButton()
-    {
-        signuppopup.gameObject.SetActive(false);
-    }
-
     private IEnumerator SignUpCoroutine(UserInfo _userInfo)
     {
         _userInfo.signNickname = signNicknametmp.text;
@@ -96,7 +90,7 @@ public class DBSignup : MonoBehaviour
         string uri = "http://127.0.0.1/DASignup.php";
 
         WWWForm form = new WWWForm();
-        form.AddField("Nick", _userInfo.signNickname);
+        form.AddField("Ni ck", _userInfo.signNickname);
         form.AddField("id", _userInfo.signID);
         form.AddField("password", _userInfo.signPW);
         form.AddField("phonenum", _userInfo.signPhoneNum);
