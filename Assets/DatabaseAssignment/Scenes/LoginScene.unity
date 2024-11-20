@@ -5485,6 +5485,7 @@ MonoBehaviour:
   idtmp: {fileID: 0}
   passwordtmp: {fileID: 0}
   errortmp: {fileID: 0}
+  loginpopup: {fileID: 0}
 --- !u!1 &1154788500
 GameObject:
   m_ObjectHideFlags: 0
@@ -6202,7 +6203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1428968295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7090,6 +7091,7 @@ MonoBehaviour:
   idtmp: {fileID: 2142468982}
   passwordtmp: {fileID: 916246323}
   errortmp: {fileID: 2074176106}
+  loginpopup: {fileID: 0}
 --- !u!1 &1559855604
 GameObject:
   m_ObjectHideFlags: 0
