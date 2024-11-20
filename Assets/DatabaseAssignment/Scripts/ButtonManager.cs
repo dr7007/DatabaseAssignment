@@ -9,6 +9,11 @@ public class ButtonManager : MonoBehaviour
     // public Button Login_BT;
     public Image SignImage;
 
+    public void IDCheck()
+    {
+        GameObject.Find("ID_pan").transform.Find("ID_Check_TMP").transform.gameObject.SetActive(true);
+    }
+
     public void SignUpSetActive() // 회원가입 버튼 눌릴 시 회원가입 창 활성화
     {
         SignImage.gameObject.SetActive(true);
