@@ -546,10 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745300eb0c2cb5a40ac728e90f156aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idtmp: {fileID: 2142468982}
-  pwtmp: {fileID: 916246323}
-  errortmp: {fileID: 1119542062}
-  loginpopup: {fileID: 727920315}
 --- !u!4 &77463387
 Transform:
   m_ObjectHideFlags: 0
@@ -1401,6 +1397,18 @@ MonoBehaviour:
       - m_Target: {fileID: 680269742}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: ErrorBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnClickSignupButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7404,7 +7412,11 @@ MonoBehaviour:
   signCorrectPWtmp: {fileID: 989100299}
   signPhoneNumtmp: {fileID: 756997386}
   signEmailtmp: {fileID: 1067409503}
-  signErrorMessages: []
+  signErrorMessages:
+  - {fileID: 337676281}
+  - {fileID: 432589727}
+  - {fileID: 1702924835}
+  signErrorpopup: {fileID: 1681216931}
   signuppopup: {fileID: 2034754523}
   signuppopupBtn: {fileID: 1154788502}
   signupBtn: {fileID: 287903007}
@@ -7562,6 +7574,18 @@ MonoBehaviour:
       - m_Target: {fileID: 680269742}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: ToLoginScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnClickSignCancelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7879,7 +7903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC00\uC785\uC644\uB8CC!"
+  m_text: "\uC815\uBCF4\uB97C \uD655\uC778 \uC911..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
   m_sharedMaterial: {fileID: 7969637548054390721, guid: 140503fd7d2686c4da84564a052ba533, type: 2}

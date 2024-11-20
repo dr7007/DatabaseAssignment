@@ -25,6 +25,7 @@ public class DBSignup : MonoBehaviour
     [SerializeField] private TMP_InputField signPhoneNumtmp;            //가입 전화번호
     [SerializeField] private TMP_InputField signEmailtmp;               //가입 이메일
     [SerializeField] private List<TextMeshProUGUI> signErrorMessages = null;   //가입 실패 텍스트
+    [SerializeField] private Image signErrorpopup;                      //가입 실패 팝업
     [SerializeField] private Image signuppopup;                         //가입 팝업
     [SerializeField] private Button signuppopupBtn;                     //가입 팝업 버튼
     [SerializeField] private Button signupBtn;                          //가입 버튼
@@ -37,34 +38,39 @@ public class DBSignup : MonoBehaviour
 
     private enum SignupError    //가입 시 오류 발생
     {
-        None,               //입력창 하나라도 비어있으면
-        DuplicateNickname,  //중복 닉네임
         DuplicateID,        //중복 ID
-        SignIncorrectPW     //비밀번호가 다를 때 (비밀번호 확인)
+        SignIncorrectPW,    //비밀번호가 다를 때 (비밀번호 확인)
+        None                //입력창에 빈 곳이 있을 경우
     }
 
     private void SignErrorMessages(SignupError error)
     {
         switch(error)
         {
-            case SignupError.DuplicateNickname:
-                signErrorMessages[0].text = "이미 사용 중인 이름입니다.";
-                break;
             case SignupError.DuplicateID:
-                signErrorMessages[1].text = "이미 사용 중인 ID입니다.";
+                signErrorMessages[0].text = "사용 중인 ID입니다.";
+                signErrorMessages[2].text = "사용 중인 ID입니다.";
+                signErrorMessages[0].gameObject.SetActive(true);
                 break;
             case SignupError.SignIncorrectPW:
+                signErrorMessages[1].text = "비밀번호가 옳지 않습니다.";
                 signErrorMessages[2].text = "비밀번호가 옳지 않습니다.";
+                signErrorMessages[1].gameObject.SetActive(true);
                 break;
             case SignupError.None:
-                signErrorMessages[3].text = "모두 채워넣어주세요.";
+                signErrorMessages[2].text = "모두 채워넣어주세요.";
                 break;
         }
+
+        //가입 실패 시 2초 후 팝업 비활성화
+        StartCoroutine(FailSignupPopupDelay());
     }
 
-    public void OnClickSignupCanvasButton()
+    private IEnumerator FailSignupPopupDelay()
     {
-        signuppopup.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+
+        signErrorpopup.gameObject.SetActive(false);
     }
 
     public void OnClickSignupButton()
@@ -87,7 +93,6 @@ public class DBSignup : MonoBehaviour
 
         signCorrectPW = signCorrectPWtmp.text;
 
-
         string uri = "http://127.0.0.1/DASignup.php";
 
         WWWForm form = new WWWForm();
@@ -103,12 +108,23 @@ public class DBSignup : MonoBehaviour
 
             if(www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
             {
-                signErrorMessages[3].text = www.error;
-            }   
-            else //로그인 성공
+                signErrorMessages[2].text = www.error;
+                yield break;
+            }
+
+            string signResponse = www.downloadHandler.text; //서버 응답 받기
+
+            if(signResponse == "DuplicateID")   //중복 ID일 시
             {
-                signErrorMessages[3].text = "가입되셨습니다.";
-                signuppopup.gameObject.SetActive(false);
+                SignErrorMessages(SignupError.DuplicateID);
+            }
+            else if(signResponse == "SignSuccess")
+            {
+                signErrorMessages[2].text = "가입 완료";
+            }
+            else
+            {
+                SignErrorMessages(SignupError.None);
             }
         }
     }

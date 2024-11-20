@@ -63,26 +63,26 @@ public class DBSignin : MonoBehaviour
 
     public void OnLoginButtonClicked()  //Login버튼 클릭 시
     {
-        StartCoroutine(LoginCoroutine(id, pw));
         errortmp.text = "로그인 중...";
+        StartCoroutine(LoginCoroutine(id, pw));
         loginpopup.gameObject.SetActive(true);
         transformsceneBtn.gameObject.SetActive(false);
     }
 
-    private IEnumerator LoginCoroutine(string _id, string _password)  //로그인 코루틴
+    private IEnumerator LoginCoroutine(string id, string password)  //로그인 코루틴
     {
-        _id = idtmp.text;    //id의 값을 초기화
-        _password = pwtmp.text;    //password값을 초기화
+        id = idtmp.text;    //id의 값을 초기화
+        password = pwtmp.text;    //password값을 초기화
 
-        if (string.IsNullOrEmpty(_id) || string.IsNullOrEmpty(_password))  //값이 비었을 때
+        if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(password))  //값이 비었을 때
         {
             ErrorMessage(SigninError.None);  //None 오류메세지 표시
             yield break;
         }
 
         WWWForm loginform = new WWWForm();   //WWWForm 클래스: Unity에서 HTTP 요청 보낼 때 폼 데이터 전송 기능
-        loginform.AddField("id", _id);   //ID 탭에 idtmp값을 추가
-        loginform.AddField("pw", _password);   //PASSWORD 탭에 passwordtmp값을 추가
+        loginform.AddField("id", id);   //ID 탭에 idtmp값을 추가
+        loginform.AddField("pw", password);   //PASSWORD 탭에 passwordtmp값을 추가
 
         using (UnityWebRequest www = UnityWebRequest.Post(loginUri, loginform))
         {
