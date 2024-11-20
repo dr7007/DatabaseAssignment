@@ -7407,7 +7407,6 @@ MonoBehaviour:
   signuppopup: {fileID: 2034754523}
   signuppopupBtn: {fileID: 1154788502}
   signupBtn: {fileID: 287903007}
-  signCancelBtn: {fileID: 1614198019}
 --- !u!4 &1557396229
 Transform:
   m_ObjectHideFlags: 0
@@ -9243,7 +9242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2034754523
 MonoBehaviour:
   m_ObjectHideFlags: 0
