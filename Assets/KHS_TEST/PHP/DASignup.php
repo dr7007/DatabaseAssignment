@@ -20,13 +20,13 @@ $result = $conn->query($sql);
 
 if($result->num_rows == 0)
 {
-	$signup_sql = "INSERT INTO tb_userinfo (id, pw, nick, pNum, eM) VALUES ('" .$id. "', '" .$pw."', '" .$nick. "', '" .$pNum. "','" .$eM. "',)";
+	$signup_sql = "INSERT INTO tb_userinfo (id, pw, nick, pNum, eM) VALUES ('" .$id. "', '" .$pw. "', '" .$nick. "', '" .$pNum. "','" .$eM. "')";
 	$conn->query($signup_sql);
-	
+	echo "SignSuccess";
 }
 else 
 {
-	echo "This ID is Already Exist!!";
+	echo "DuplicateID";
 }
 
 $conn->close();
