@@ -25,7 +25,10 @@ public class DBSignup : MonoBehaviour
     [SerializeField] private TMP_InputField signPhoneNumtmp;            //가입 전화번호
     [SerializeField] private TMP_InputField signEmailtmp;               //가입 이메일
     [SerializeField] private List<TextMeshProUGUI> signErrorMessages = null;   //가입 실패 텍스트
+    [SerializeField] private Image signuppopup;                         //가입 팝업
+    [SerializeField] private Button signuppopupBtn;                     //가입 팝업 버튼
     [SerializeField] private Button signupBtn;                          //가입 버튼
+    [SerializeField] private Button signCancelBtn;                      //취소 버튼
 
     //확인용 변수
     private string signCorrectPW;     //비밀번호 확인 때 사용
@@ -44,29 +47,34 @@ public class DBSignup : MonoBehaviour
     {
         switch(error)
         {
-            case SignupError.None:
-                signErrorMessages[0].text = "모두 채워넣어주세요.";
-                break;
             case SignupError.DuplicateNickname:
-                signErrorMessages[1].text = "이미 사용 중인 이름입니다.";
+                signErrorMessages[0].text = "이미 사용 중인 이름입니다.";
                 break;
             case SignupError.DuplicateID:
-                signErrorMessages[2].text = "이미 사용 중인 ID입니다.";
+                signErrorMessages[1].text = "이미 사용 중인 ID입니다.";
                 break;
             case SignupError.SignIncorrectPW:
-                signErrorMessages[3].text = "비밀번호가 옳지 않습니다.";
+                signErrorMessages[2].text = "비밀번호가 옳지 않습니다.";
+                break;
+            case SignupError.None:
+                signErrorMessages[3].text = "모두 채워넣어주세요.";
                 break;
         }
     }
 
-    private void OnClickSignupCanvasButton()
+    public void OnClickSignupCanvasButton()
     {
-        
+        signuppopup.gameObject.SetActive(true);
     }
 
-    private void OnClickSignupButton()
+    public void OnClickSignupButton()
     {
         StartCoroutine(SignUpCoroutine(userInfo));
+    }
+
+    public void OnClickSignCancelButton()
+    {
+        signuppopup.gameObject.SetActive(false);
     }
 
     private IEnumerator SignUpCoroutine(UserInfo _userInfo)
@@ -78,6 +86,7 @@ public class DBSignup : MonoBehaviour
         _userInfo.signEmail = signEmailtmp.text;
 
         signCorrectPW = signCorrectPWtmp.text;
+
 
         string uri = "http://127.0.0.1/DASignup.php";
 
@@ -94,11 +103,12 @@ public class DBSignup : MonoBehaviour
 
             if(www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
             {
-                signErrorMessages[2].text = www.error;
+                signErrorMessages[3].text = www.error;
             }   
             else //로그인 성공
             {
                 signErrorMessages[3].text = "가입되셨습니다.";
+                signuppopup.gameObject.SetActive(false);
             }
         }
     }

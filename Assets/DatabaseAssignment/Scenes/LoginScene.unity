@@ -526,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 77463387}
   - component: {fileID: 77463386}
+  - component: {fileID: 77463388}
   m_Layer: 0
   m_Name: DBSignin
   m_TagString: Untagged
@@ -545,10 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745300eb0c2cb5a40ac728e90f156aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idtmp: {fileID: 2142468982}
-  passwordtmp: {fileID: 916246323}
-  errortmp: {fileID: 1119542062}
-  loginpopup: {fileID: 727920315}
 --- !u!4 &77463387
 Transform:
   m_ObjectHideFlags: 0
@@ -558,12 +555,29 @@ Transform:
   m_GameObject: {fileID: 77463385}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 898.94934, y: 510.6983, z: -10.822235}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77463388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77463385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idtmp: {fileID: 2142468982}
+  pwtmp: {fileID: 916246323}
+  errortmp: {fileID: 1119542062}
+  loginpopup: {fileID: 727920315}
+  transformsceneBtn: {fileID: 592652927}
 --- !u!1 &82919698
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +917,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 77463386}
+      - m_Target: {fileID: 77463388}
         m_TargetAssemblyTypeName: DBSignin, Assembly-CSharp
         m_MethodName: OnLoginButtonClicked
         m_Mode: 1
@@ -5513,54 +5527,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125341889}
   m_CullTransparentMesh: 1
---- !u!1 &1147020343
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1147020344}
-  - component: {fileID: 1147020345}
-  m_Layer: 0
-  m_Name: DBSignin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1147020344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147020343}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1147020345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147020343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 745300eb0c2cb5a40ac728e90f156aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idtmp: {fileID: 0}
-  passwordtmp: {fileID: 0}
-  errortmp: {fileID: 0}
-  loginpopup: {fileID: 0}
 --- !u!1 &1154788500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5644,9 +5610,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680269742}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: SignUpSetActive
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnClickSignupCanvasButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5694,50 +5660,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154788500}
   m_CullTransparentMesh: 1
---- !u!1 &1180617295
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1180617296}
-  - component: {fileID: 1180617297}
-  m_Layer: 0
-  m_Name: DBLogin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1180617296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180617295}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1180617297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180617295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1242653050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6261,107 +6183,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400214902}
   m_CullTransparentMesh: 1
---- !u!1 &1428968294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1428968298}
-  - component: {fileID: 1428968297}
-  - component: {fileID: 1428968296}
-  - component: {fileID: 1428968295}
-  m_Layer: 5
-  m_Name: Singn_up_Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1428968295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428968294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1428968296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428968294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &1428968297
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428968294}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &1428968298
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428968294}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1452815956
 GameObject:
   m_ObjectHideFlags: 0
@@ -7068,7 +6889,6 @@ GameObject:
   - component: {fileID: 1527900707}
   - component: {fileID: 1527900710}
   - component: {fileID: 1527900709}
-  - component: {fileID: 1527900708}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -7100,18 +6920,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1527900708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527900706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1527900709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7179,14 +6987,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b607fdc9c842d46ab10fcae7219894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signNicknametmp: {fileID: 0}
-  signIDtmp: {fileID: 0}
-  signPasswordtmp: {fileID: 0}
-  signCorrectpasswordtmp: {fileID: 0}
-  signPhoneNumtmp: {fileID: 0}
-  signEmailtmp: {fileID: 0}
-  signerrorMessage: {fileID: 0}
-  signupBtn: {fileID: 0}
+  testTmp: {fileID: 1337799105}
+  signNicknametmp: {fileID: 82919700}
+  signIDtmp: {fileID: 829551702}
+  signPWtmp: {fileID: 665421003}
+  signCorrectPWtmp: {fileID: 989100299}
+  signPhoneNumtmp: {fileID: 756997386}
+  signEmailtmp: {fileID: 1067409503}
+  signErrorMessages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  signuppopup: {fileID: 2034754523}
+  signuppopupBtn: {fileID: 1154788502}
+  signupBtn: {fileID: 287903007}
+  signCancelBtn: {fileID: 1614198019}
 --- !u!4 &1557396229
 Transform:
   m_ObjectHideFlags: 0
@@ -7196,7 +7012,7 @@ Transform:
   m_GameObject: {fileID: 1557396227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 898.94934, y: 510.6983, z: -10.822235}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9236,11 +9052,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 330585546}
   - {fileID: 410087041}
-  - {fileID: 1180617296}
-  - {fileID: 1147020344}
   - {fileID: 20722257}
   - {fileID: 2017503371}
   - {fileID: 680269743}
-  - {fileID: 1428968298}
   - {fileID: 77463387}
   - {fileID: 1557396229}

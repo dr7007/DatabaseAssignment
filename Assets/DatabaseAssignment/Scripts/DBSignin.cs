@@ -14,6 +14,7 @@ public class DBSignin : MonoBehaviour
     [SerializeField] private TMP_InputField pwtmp;   //비밀번호 입력 UI InputField
     [SerializeField] private TextMeshProUGUI errortmp;  //로그인 실패 시 이유 출력할 텍스트
     [SerializeField] private Image loginpopup;  //로그인 성공, 실패에 대한 팝업
+    [SerializeField] private Button transformsceneBtn;  //mainscene 이동 버튼
 
     private string id;  //idtmp에 입력한 값을 사용하기 위해
     private string pw;    //passwordtmp에 입력한 값을 사용하기 위해
@@ -65,6 +66,7 @@ public class DBSignin : MonoBehaviour
         StartCoroutine(LoginCoroutine(id, pw));
         errortmp.text = "로그인 중...";
         loginpopup.gameObject.SetActive(true);
+        transformsceneBtn.gameObject.SetActive(false);
     }
 
     private IEnumerator LoginCoroutine(string id, string password)  //로그인 코루틴
@@ -108,6 +110,7 @@ public class DBSignin : MonoBehaviour
             else if (response == "Success") //로그인 성공 시
             {
                 errortmp.text = "로그인 성공";
+                transformsceneBtn.gameObject.SetActive(true);
             }
             else
             {
