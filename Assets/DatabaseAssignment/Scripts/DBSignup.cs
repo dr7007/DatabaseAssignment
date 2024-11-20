@@ -30,10 +30,39 @@ public class DBSignup : MonoBehaviour
     [SerializeField] private Button signuppopupBtn;                     //가입 팝업 버튼
     [SerializeField] private Button signupBtn;                          //가입 버튼
 
+    private bool isFull;
+
     //확인용 변수
     private string signCorrectPW;     //비밀번호 확인 때 사용
 
     private UserInfo userInfo = new UserInfo();
+
+    public void OnValueChangedPW(string _signpw)
+    {
+        userInfo.signPW = _signpw;
+    }
+
+    public void OnValueChangedSignCollectPW(string _signcollectpw)
+    {
+        signCorrectPW = _signcollectpw;
+    }
+
+    private void Update()
+    {
+        Debug.Log(userInfo.signPW + " " + signCorrectPW);
+        if (userInfo.signPW != signCorrectPW)
+        {
+            signErrorMessages[1].color = Color.red;
+            SignErrorMessages(SignupError.SignIncorrectPW);
+            signErrorMessages[1].gameObject.SetActive(true);
+        }
+        else
+        {
+            signErrorMessages[1].color = Color.blue;
+            signErrorMessages[1].text = "비밀번호가 일치합니다.";
+            signErrorMessages[1].gameObject.SetActive(true);
+        }
+    }
 
     private enum SignupError    //가입 시 오류 발생
     {
@@ -49,6 +78,7 @@ public class DBSignup : MonoBehaviour
             case SignupError.DuplicateID:
                 signErrorMessages[0].text = "사용 중인 ID입니다.";
                 signErrorMessages[2].text = "사용 중인 ID입니다.";
+                signErrorMessages[0].color = Color.red;
                 signErrorMessages[0].gameObject.SetActive(true);
                 break;
             case SignupError.SignIncorrectPW:
@@ -71,6 +101,44 @@ public class DBSignup : MonoBehaviour
 
         signErrorpopup.gameObject.SetActive(false);
     }
+    public void OnClickSignupIDButton()
+    {
+        StartCoroutine(DuplicateIDCoroutine(userInfo));
+    }
+
+    private IEnumerator DuplicateIDCoroutine(UserInfo _userInfo)
+    {
+        _userInfo.signID = signIDtmp.text;
+
+        string uri = "http://127.0.0.1/DASignIDchk.php";
+
+        WWWForm form = new WWWForm();
+        form.AddField("id", _userInfo.signID);
+
+        using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
+            {
+                signErrorMessages[2].text = www.error;
+                yield break;
+            }
+
+            string signResponse = www.downloadHandler.text; //서버 응답 받기
+            Debug.Log(signResponse);
+            if (signResponse == "DuplicateID")   //중복 ID일 시
+            {
+                SignErrorMessages(SignupError.DuplicateID);
+            }
+            else
+            {
+                signErrorMessages[0].color = Color.blue;
+                signErrorMessages[0].text = "사용 가능한 ID입니다.";
+                signErrorMessages[0].gameObject.SetActive(true);
+            }
+        }
+    }
 
     public void OnClickSignupButton()
     {
@@ -90,38 +158,68 @@ public class DBSignup : MonoBehaviour
         string uri = "http://127.0.0.1/DASignup.php";
 
         WWWForm form = new WWWForm();
-        form.AddField("Ni ck", _userInfo.signNickname);
+        form.AddField("Nick", _userInfo.signNickname);
         form.AddField("id", _userInfo.signID);
         form.AddField("password", _userInfo.signPW);
         form.AddField("phonenum", _userInfo.signPhoneNum);
         form.AddField("Email", _userInfo.signEmail);
 
-        using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
+        if (!string.IsNullOrEmpty(_userInfo.signID) && !string.IsNullOrEmpty(_userInfo.signPW) && !string.IsNullOrEmpty(signCorrectPW) &&
+            !string.IsNullOrEmpty(_userInfo.signNickname) && !string.IsNullOrEmpty(_userInfo.signPhoneNum) && !string.IsNullOrEmpty(_userInfo.signEmail))  //값이 비었을 때
         {
-            yield return www.SendWebRequest();
+            using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
+            {
+                yield return www.SendWebRequest();
 
-            if(www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
-            {
-                signErrorMessages[2].text = www.error;
-                yield break;
-            }
+                if (www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
+                {
+                    signErrorMessages[2].text = www.error;
+                    yield break;
+                }
 
-            string signResponse = www.downloadHandler.text; //서버 응답 받기
+                string signResponse = www.downloadHandler.text; //서버 응답 받기
 
-            if(signResponse == "DuplicateID")   //중복 ID일 시
-            {
-                SignErrorMessages(SignupError.DuplicateID);
-            }
-            else if(signResponse == "SignSuccess")
-            {
-                signErrorMessages[2].text = "가입 완료";
-            }
-            else
-            {
-                Debug.Log(signResponse);
-                SignErrorMessages(SignupError.None);
+                if (signResponse == "DuplicateID")   //중복 ID일 시
+                {
+                    SignErrorMessages(SignupError.DuplicateID);
+                }
+                else
+                {
+                    signErrorMessages[2].text = "가입 완료";
+                }
             }
         }
+        else
+        {
+            SignErrorMessages(SignupError.None);
+        }
+
+        //using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
+        //{
+        //    yield return www.SendWebRequest();
+
+        //    if(www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
+        //    {
+        //        signErrorMessages[2].text = www.error;
+        //        yield break;
+        //    }
+
+        //    string signResponse = www.downloadHandler.text; //서버 응답 받기
+
+        //    if(signResponse == "DuplicateID")   //중복 ID일 시
+        //    {
+        //        SignErrorMessages(SignupError.DuplicateID);
+        //    }
+        //    else if(signResponse == "SignSuccess")
+        //    {
+        //        signErrorMessages[2].text = "가입 완료";
+        //    }
+        //    else
+        //    {
+        //        Debug.Log(signResponse);
+        //        SignErrorMessages(SignupError.None);
+        //    }
+        //}
     }
 
     //회원 정보 로그

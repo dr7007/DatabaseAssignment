@@ -525,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77463387}
-  - component: {fileID: 77463386}
+  - component: {fileID: 77463388}
   m_Layer: 0
   m_Name: DBSignin
   m_TagString: Untagged
@@ -533,23 +533,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &77463386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77463385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 745300eb0c2cb5a40ac728e90f156aab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idtmp: {fileID: 2142468982}
-  pwtmp: {fileID: 916246323}
-  errortmp: {fileID: 1119542062}
-  loginpopup: {fileID: 727920315}
-  transformsceneBtn: {fileID: 592652927}
 --- !u!4 &77463387
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +548,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &77463388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77463385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c1fe5df54b0a44dba36c6c31694941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idtmp: {fileID: 2142468982}
+  pwtmp: {fileID: 916246323}
+  errortmp: {fileID: 1119542062}
+  loginpopup: {fileID: 727920315}
+  transformsceneBtn: {fileID: 592652927}
 --- !u!1 &82919698
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 77463386}
+      - m_Target: {fileID: 77463388}
         m_TargetAssemblyTypeName: DBSignin, Assembly-CSharp
         m_MethodName: OnLoginButtonClicked
         m_Mode: 1
@@ -1112,9 +1112,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680269742}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: IDCheck
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnClickSignupIDButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3308,7 +3308,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnValueChangedPW
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5347,7 +5359,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnValueChangedSignCollectPW
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7405,9 +7429,8 @@ MonoBehaviour:
   - {fileID: 1702924835}
   signErrorpopup: {fileID: 1681216931}
   signuppopup: {fileID: 2034754523}
-  signuppopupBtn: {fileID: 1154788502}
+  signuppopupBtn: {fileID: 294847945}
   signupBtn: {fileID: 287903007}
-  signCancelBtn: {fileID: 1614198019}
 --- !u!4 &1557396229
 Transform:
   m_ObjectHideFlags: 0
