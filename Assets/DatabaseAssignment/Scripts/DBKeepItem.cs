@@ -23,7 +23,6 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SetInvenCoroutine(FindAnyObjectByType<DBPlayerInfo>().uid));
-        StartCoroutine(StartGenerateItem(itemHash));
         // 이미지 배열을 자동으로 로드 (선택적으로 사용)
         LoadImagesFromResources();
     }
@@ -34,6 +33,41 @@ public class InventoryManager : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("id", _id);
+
+            
+        using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                string response = www.downloadHandler.text;
+                Debug.Log(response);
+
+                if (response == "NewInvenIDCreat")
+                {
+                    itemHash = string.Empty;
+                }
+                else
+                {
+                    itemHash += response;
+                    StartCoroutine(StartGenerateItem(itemHash));
+                }
+            }
+        }
+    }
+
+    private IEnumerator UpdateInvenCoroutine(string _id, string _itemHash)
+    {
+        string uri = "http://127.0.0.1/DAUpdateInven.php";
+
+        WWWForm form = new WWWForm();
+        form.AddField("id", _id);
+        form.AddField("iteminfo", _itemHash);
 
 
         using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
@@ -47,16 +81,6 @@ public class InventoryManager : MonoBehaviour
             else
             {
                 Debug.Log(www.downloadHandler.text);
-                string response = www.downloadHandler.text;
-
-                if (response == "NewInvenSuccess")
-                {
-                    itemHash = string.Empty;
-                }
-                else
-                {
-                    itemHash = itemHash + response;
-                }
             }
         }
     }
@@ -156,8 +180,7 @@ public class InventoryManager : MonoBehaviour
             // 랜덤하게 이미지 부여
             AssignRandomImageToItem(newItem);
             image.ItemPOS = "Slot" + slotIndex.ToString() + "_";
-            SetItemHash(newItem.GetComponentInChildren<ItemImage>());
-            itemHash = image.ItemID + image.ItemPOS;
+            SetItemHash(image);
             Debug.Log(itemHash);
 
             Debug.Log($"아이템이 슬롯 {slotIndex}에 추가되었습니다!");
@@ -168,9 +191,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void SetItemHash(ItemImage _item)
+    private void SetItemHash(ItemImage _itemimage)
     {
-
+        itemHash += (_itemimage.ItemID + _itemimage.ItemPOS);
+        StartCoroutine(UpdateInvenCoroutine(FindAnyObjectByType<DBPlayerInfo>().uid, itemHash));
     }
 
     // 첫 번째 빈 슬롯에 아이템 추가
