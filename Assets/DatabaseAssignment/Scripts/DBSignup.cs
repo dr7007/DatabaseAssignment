@@ -16,6 +16,9 @@ public class DBSignup : MonoBehaviour
         public string signPW { get; set; }
         public string signPhoneNum { get; set; }
         public string signEmail { get; set; }
+        public string pgold = "0";
+        public string plevel = "1";
+        public string pexp = "0";
     }
 
     [SerializeField] private TMP_InputField signNicknametmp;            //가입 닉네임
@@ -34,6 +37,9 @@ public class DBSignup : MonoBehaviour
     private string signCorrectPW;     //비밀번호 확인 때 사용
 
     private UserInfo userInfo = new UserInfo();
+
+
+
     public void OnValueChangedSignID(string signIDtmp)
     {
         userInfo.signID = signIDtmp;
@@ -190,6 +196,9 @@ public class DBSignup : MonoBehaviour
         form.AddField("password", _userInfo.signPW);
         form.AddField("phonenum", _userInfo.signPhoneNum);
         form.AddField("Email", _userInfo.signEmail);
+        form.AddField("Gold", _userInfo.pgold);
+        form.AddField("lvl", _userInfo.plevel);
+        form.AddField("Exp", _userInfo.pexp);
 
         if (!string.IsNullOrEmpty(_userInfo.signID) && !string.IsNullOrEmpty(_userInfo.signPW) && !string.IsNullOrEmpty(signCorrectPW) &&
             !string.IsNullOrEmpty(_userInfo.signNickname) && !string.IsNullOrEmpty(_userInfo.signPhoneNum) && !string.IsNullOrEmpty(_userInfo.signEmail))  //값이 비었을 때
