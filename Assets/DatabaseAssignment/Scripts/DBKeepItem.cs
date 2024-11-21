@@ -6,6 +6,9 @@ using TMPro;
 using System;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.Windows;
+using System.Text.RegularExpressions;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -52,20 +55,83 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    itemHash += response;
+                    itemHash = itemHash + response;
                 }
             }
         }
     }
     private IEnumerator StartGenerateItem(string _itemHash)
     {
-        yield return null;
+        // "_"로 분리된 항목들을 처리
+        string[] pairs = _itemHash.Split('_');
+        foreach (string pair in pairs)
+        {
+            // "-"로 분리하여 Item과 Slot으로 나누기
+            string[] parts = pair.Split('-');
+            if (parts.Length == 2)
+            {
+                string item = parts[0];
+                string slot = parts[1];
+
+                int itemNumber = ExtractNumber(item);
+                int slotNumber = ExtractNumber(slot);
+
+                AddItemToSlotAndType(itemNumber,slotNumber);
+                yield return null;
+            } 
+        }
+    }
+
+    private int ExtractNumber(string input)
+    {
+        string number = Regex.Replace(input, @"\D", ""); // 문자를 제거
+        return int.TryParse(number, out int result) ? result : 0; // 숫자로 변환
     }
 
     // 버튼 클릭 시 호출
     public void OnAddItemButtonClicked()
     {
         AddItemToFirstEmptySlot();
+    }
+
+    // 시작 아이템을 특정 슬롯에 배치
+    public void AddItemToSlotAndType(int itemIndex, int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= inventorySlots.Count)
+        {
+            Debug.LogWarning("잘못된 슬롯 인덱스입니다.");
+            return;
+        }
+
+        RectTransform targetSlot = inventorySlots[slotIndex];
+        Transform targetSlotTransform = targetSlot.transform;
+
+        if (targetSlotTransform.childCount == 0) // 슬롯이 비어있는 경우만 아이템 추가
+        {
+            GameObject newItem = Instantiate(prefabItem, targetSlotTransform);
+            newItem.transform.localPosition = Vector3.zero; // 슬롯 중심으로 위치 초기화
+            newItem.transform.localScale = Vector3.one;     // 스케일 초기화
+
+            Sprite selectImage = imageSprites[itemIndex];
+
+            // 생성된 아이템의 Source Image 컴포넌트에 할당
+            Image itemImage = newItem.GetComponentInChildren<Image>();
+            if (itemImage != null)
+            {
+                itemImage.sprite = selectImage;
+                Debug.Log("선택 이미지가 아이템에 적용되었습니다.");
+            }
+            else
+            {
+                Debug.LogWarning("아이템에 Image 컴포넌트가 없습니다.");
+            }
+
+            Debug.Log($"아이템{itemIndex}이 슬롯 {slotIndex}에 추가되었습니다!");
+        }
+        else
+        {
+            Debug.Log("해당 슬롯이 이미 차있습니다.");
+        }
     }
 
     // 아이템을 특정 슬롯에 배치
@@ -86,10 +152,13 @@ public class InventoryManager : MonoBehaviour
             newItem.transform.localPosition = Vector3.zero; // 슬롯 중심으로 위치 초기화
             newItem.transform.localScale = Vector3.one;     // 스케일 초기화
 
+            ItemImage image = newItem.GetComponentInChildren<ItemImage>();
             // 랜덤하게 이미지 부여
             AssignRandomImageToItem(newItem);
-            newItem.GetComponentInChildren<ItemImage>().ItemPOS = "Slot" + slotIndex.ToString();
+            image.ItemPOS = "Slot" + slotIndex.ToString() + "_";
             SetItemHash(newItem.GetComponentInChildren<ItemImage>());
+            itemHash = image.ItemID + image.ItemPOS;
+            Debug.Log(itemHash);
 
             Debug.Log($"아이템이 슬롯 {slotIndex}에 추가되었습니다!");
         }
@@ -138,7 +207,7 @@ public class InventoryManager : MonoBehaviour
 
         // 랜덤으로 이미지 선택
         int randomIndex = UnityEngine.Random.Range(0, imageSprites.Length);
-        item.GetComponentInChildren<ItemImage>().ItemID = "Item" + randomIndex.ToString();
+        item.GetComponentInChildren<ItemImage>().ItemID = "Item" + randomIndex.ToString() + "-";
         Sprite randomImage = imageSprites[randomIndex];
 
         // 생성된 아이템의 Source Image 컴포넌트에 할당
