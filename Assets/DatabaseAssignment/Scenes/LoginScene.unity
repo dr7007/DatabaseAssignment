@@ -439,8 +439,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: aaaa@aa.com
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
+  m_sharedMaterial: {fileID: 7969637548054390721, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -683,19 +683,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1557396228}
-        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
-        m_MethodName: ValidateSignNickname
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1941,8 +1929,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 000-0000-0000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
+  m_sharedMaterial: {fileID: 7969637548054390721, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2155,8 +2143,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2312,8 +2300,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PassWord
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3289,8 +3277,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -3323,8 +3311,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1557396228}
         m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
-        m_MethodName: ValidateSignPW
-        m_Mode: 5
+        m_MethodName: OnValueChangedPW
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3344,7 +3332,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -3422,7 +3410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SignImage: {fileID: 2034754523}
-  Errorbox: {fileID: 854958511}
+  Errorbox: {fileID: 1681216931}
+  playerinfo: {fileID: 0}
 --- !u!4 &680269743
 Transform:
   m_ObjectHideFlags: 0
@@ -3874,14 +3863,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 3
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 2
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 3
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -3917,7 +3906,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -4348,8 +4337,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4595,19 +4584,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1557396228}
-        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
-        m_MethodName: ValidateSignID
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4619,7 +4596,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -4747,8 +4724,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "ID\uB97C \uC785\uB825\uD558\uC138\uC694."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
+  m_sharedMaterial: {fileID: 7969637548054390721, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4824,82 +4801,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837491129}
   m_CullTransparentMesh: 1
---- !u!1 &854958510
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 854958513}
-  - component: {fileID: 854958512}
-  - component: {fileID: 854958511}
-  m_Layer: 5
-  m_Name: SignError_Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &854958511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854958510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &854958512
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854958510}
-  m_CullTransparentMesh: 1
---- !u!224 &854958513
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854958510}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1681216930}
-  m_Father: {fileID: 2034754525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 419.99994, y: 84.99994}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &865223686
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,7 +5058,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -5428,8 +5329,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -5462,8 +5363,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1557396228}
         m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
-        m_MethodName: ValidateSignCorrectPW
-        m_Mode: 5
+        m_MethodName: OnValueChangedSignCollectPW
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5483,7 +5384,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -5618,14 +5519,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 6
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 7
+  m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 7
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -5661,7 +5562,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -5793,8 +5694,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5845,6 +5746,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119542060}
   m_CullTransparentMesh: 1
+--- !u!1 &1124605201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124605203}
+  - component: {fileID: 1124605202}
+  - component: {fileID: 1124605204}
+  m_Layer: 0
+  m_Name: PlayerInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1124605202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124605201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8824a7cd633c8124a8499697296d408f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uid: 
+--- !u!4 &1124605203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124605201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 860.68396, y: 855.2466, z: -13.236985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1124605204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124605201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522c29fc097f052499b66a58c6468b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1125341889
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,8 +6242,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBE44\uBC00\uBC88\uD638\uB97C \uC7AC\uC785\uB825\uD558\uC138\uC694."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
+  m_sharedMaterial: {fileID: 7969637548054390721, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6419,8 +6378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6714,8 +6673,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7143,8 +7102,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ID
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7527,10 +7486,10 @@ MonoBehaviour:
   - {fileID: 337676281}
   - {fileID: 432589727}
   - {fileID: 1702924835}
-  signErrorpopup: {fileID: 854958511}
-  signupIDBtn: {fileID: 213662502}
-  signupBtn: {fileID: 0}
-  signupErrorBtn: {fileID: 294847945}
+  signErrorpopup: {fileID: 1681216931}
+  signuppopup: {fileID: 2034754523}
+  signuppopupBtn: {fileID: 294847945}
+  signupBtn: {fileID: 287903007}
 --- !u!4 &1557396229
 Transform:
   m_ObjectHideFlags: 0
@@ -7896,7 +7855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1681216930
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7911,7 +7870,7 @@ RectTransform:
   m_Children:
   - {fileID: 1702924834}
   - {fileID: 294847944}
-  m_Father: {fileID: 854958513}
+  m_Father: {fileID: 2034754525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8040,8 +7999,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8414,8 +8373,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8764,8 +8723,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8921,8 +8880,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD558\uC138\uC694."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
+  m_sharedMaterial: {fileID: 7969637548054390721, guid: 140503fd7d2686c4da84564a052ba533, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9193,8 +9152,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
-  m_sharedMaterial: {fileID: 3254182660656938791, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9426,7 +9385,7 @@ RectTransform:
   - {fileID: 1804494562}
   - {fileID: 287903006}
   - {fileID: 1614198018}
-  - {fileID: 854958513}
+  - {fileID: 1681216930}
   m_Father: {fileID: 20722257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9752,7 +9711,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: f34c5d7b4fe33d54ea871f134296eaa3, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
@@ -9804,10 +9763,11 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1124605203}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 20722257}
   - {fileID: 2017503371}
+  - {fileID: 680269743}
   - {fileID: 77463387}
   - {fileID: 1557396229}
-  - {fileID: 680269743}
