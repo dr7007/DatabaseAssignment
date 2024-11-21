@@ -11,17 +11,14 @@ public class ButtonManager : MonoBehaviour
     public Image SignImage;
     public Image Errorbox;
     public DBPlayerInfo playerinfo = null;
-    public GameObject panel;
+  
 
     private void Awake()
     {
         playerinfo = FindAnyObjectByType<DBPlayerInfo>();
     }
 
-    private void Start()
-    {
-        panel.SetActive(false);
-    }
+    
 
     public void LogoutPanelOn()
     {
