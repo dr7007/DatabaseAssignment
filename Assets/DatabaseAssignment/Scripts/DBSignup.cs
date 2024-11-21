@@ -26,16 +26,31 @@ public class DBSignup : MonoBehaviour
     [SerializeField] private TMP_InputField signEmailtmp;               //가입 이메일
     [SerializeField] private List<TextMeshProUGUI> signErrorMessages = null;   //가입 실패 텍스트
     [SerializeField] private Image signErrorpopup;                      //가입 실패 팝업
-    [SerializeField] private Image signuppopup;                         //가입 팝업
-    [SerializeField] private Button signuppopupBtn;                     //가입 팝업 버튼
-    [SerializeField] private Button signupBtn;                          //가입 버튼
-
-    private bool isFull;
+    [SerializeField] private Button signupIDBtn;                        //가입 ID 확인 버튼
+    [SerializeField] private Button signupBtn;                          //가입 팝업 버튼
+    [SerializeField] private Button signupErrorBtn;                     //가입 버튼
 
     //확인용 변수
     private string signCorrectPW;     //비밀번호 확인 때 사용
 
     private UserInfo userInfo = new UserInfo();
+    public void OnValueChangedSignID(string signIDtmp)
+    {
+        userInfo.signID = signIDtmp;
+        UpdateSignupIDButton();  // 값이 바뀔 때마다 버튼 상태 업데이트
+    }
+    private void UpdateSignupIDButton()
+    {
+        // signIDtmp 값이 비어 있으면 버튼을 비활성화하고, 값이 있으면 활성화
+        if (string.IsNullOrEmpty(userInfo.signID))
+        {
+            signupIDBtn.interactable = false;
+        }
+        else
+        {
+            signupIDBtn.interactable = true;
+        }
+    }
 
     public void OnValueChangedPW(string _signpw)
     {
@@ -49,7 +64,6 @@ public class DBSignup : MonoBehaviour
 
     private void Update()
     {
-        
         if (userInfo.signPW != signCorrectPW)
         {
             signErrorMessages[1].color = Color.red;
@@ -62,6 +76,15 @@ public class DBSignup : MonoBehaviour
             signErrorMessages[1].text = "비밀번호가 일치합니다.";
             signErrorMessages[1].gameObject.SetActive(true);
         }
+
+        if (!string.IsNullOrEmpty(userInfo.signID))
+        {
+            signupIDBtn.interactable = true;
+        }
+        else
+        {
+            signupIDBtn.interactable = false;
+        }
     }
 
     private enum SignupError    //가입 시 오류 발생
@@ -71,7 +94,7 @@ public class DBSignup : MonoBehaviour
         None                //입력창에 빈 곳이 있을 경우
     }
 
-    private void SignErrorMessages(SignupError error)
+    private void SignErrorMessages(SignupError error)   //가입 중 문제 발생 시
     {
         switch(error)
         {
@@ -80,14 +103,17 @@ public class DBSignup : MonoBehaviour
                 signErrorMessages[2].text = "사용 중인 ID입니다.";
                 signErrorMessages[0].color = Color.red;
                 signErrorMessages[0].gameObject.SetActive(true);
+                signupErrorBtn.gameObject.SetActive(false);
                 break;
             case SignupError.SignIncorrectPW:
                 signErrorMessages[1].text = "비밀번호가 옳지 않습니다.";
                 signErrorMessages[2].text = "비밀번호가 옳지 않습니다.";
                 signErrorMessages[1].gameObject.SetActive(true);
+                signupErrorBtn.gameObject.SetActive(false);
                 break;
             case SignupError.None:
                 signErrorMessages[2].text = "모두 채워넣어주세요.";
+                signupErrorBtn.gameObject.SetActive(false);
                 break;
         }
 
@@ -127,10 +153,11 @@ public class DBSignup : MonoBehaviour
 
             string signResponse = www.downloadHandler.text; //서버 응답 받기
 
-            if (signResponse == "DuplicateID")   //중복 ID일 시
+            if (signResponse == "DuplicateID")   //중복 ID 일 시
             {
                 SignErrorMessages(SignupError.DuplicateID);
             }
+
             else
             {
                 signErrorMessages[0].color = Color.blue;
@@ -149,8 +176,8 @@ public class DBSignup : MonoBehaviour
     {
         _userInfo.signNickname = signNicknametmp.text;
         _userInfo.signID = signIDtmp.text;
-        _userInfo.signPW= signPWtmp.text;
-        _userInfo.signPhoneNum = signPhoneNumtmp.text; 
+        _userInfo.signPW = signPWtmp.text;
+        _userInfo.signPhoneNum = signPhoneNumtmp.text;
         _userInfo.signEmail = signEmailtmp.text;
 
         signCorrectPW = signCorrectPWtmp.text;
@@ -174,6 +201,7 @@ public class DBSignup : MonoBehaviour
                 if (www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
                 {
                     signErrorMessages[2].text = www.error;
+                    signupErrorBtn.gameObject.SetActive(false);
                     yield break;
                 }
 
@@ -183,6 +211,7 @@ public class DBSignup : MonoBehaviour
                 {
                     SignErrorMessages(SignupError.DuplicateID);
                 }
+
                 else
                 {
                     signErrorMessages[2].text = "가입 완료";
@@ -193,33 +222,6 @@ public class DBSignup : MonoBehaviour
         {
             SignErrorMessages(SignupError.None);
         }
-
-        //using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
-        //{
-        //    yield return www.SendWebRequest();
-
-        //    if(www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
-        //    {
-        //        signErrorMessages[2].text = www.error;
-        //        yield break;
-        //    }
-
-        //    string signResponse = www.downloadHandler.text; //서버 응답 받기
-
-        //    if(signResponse == "DuplicateID")   //중복 ID일 시
-        //    {
-        //        SignErrorMessages(SignupError.DuplicateID);
-        //    }
-        //    else if(signResponse == "SignSuccess")
-        //    {
-        //        signErrorMessages[2].text = "가입 완료";
-        //    }
-        //    else
-        //    {
-        //        Debug.Log(signResponse);
-        //        SignErrorMessages(SignupError.None);
-        //    }
-        //}
     }
 
     //회원 정보 로그
