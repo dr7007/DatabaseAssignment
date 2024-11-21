@@ -8,6 +8,9 @@ using TMPro;
 public class BTMG : MonoBehaviour
 {
     public GameObject Logout;
+    public GameObject Option;
+    public GameObject UserInfoChange;
+    public GameObject Unrigister;
 
    public void LogoutOn()
     {
@@ -21,8 +24,14 @@ public class BTMG : MonoBehaviour
 
     public void OptionOn()
     {
-
+        Option.gameObject.SetActive(true);
     }
+
+    public void OptionOff()
+    {
+        Option.gameObject.SetActive(false);
+    }
+
 
     public void GoLoginScene()
     {
