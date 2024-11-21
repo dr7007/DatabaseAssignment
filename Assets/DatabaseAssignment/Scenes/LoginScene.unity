@@ -1381,9 +1381,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 680269742}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: ErrorBox
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnClickSignupButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1393,9 +1393,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1557396228}
-        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
-        m_MethodName: OnClickSignupButton
+      - m_Target: {fileID: 680269742}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: ErrorBox
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3410,7 +3410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SignImage: {fileID: 2034754523}
-  Errorbox: {fileID: 1681216931}
+  Errorbox: {fileID: 1864527709}
   playerinfo: {fileID: 0}
 --- !u!4 &680269743
 Transform:
@@ -4584,7 +4584,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1557396228}
+        m_TargetAssemblyTypeName: DBSignup, Assembly-CSharp
+        m_MethodName: OnValueChangedSignID
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7486,6 +7498,7 @@ MonoBehaviour:
   - {fileID: 337676281}
   - {fileID: 432589727}
   - {fileID: 1702924835}
+  signEpopup: {fileID: 2034754523}
   signErrorpopup: {fileID: 1864527709}
   signupIDBtn: {fileID: 213662502}
   signupBtn: {fileID: 287903007}
@@ -7855,7 +7868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1681216930
 RectTransform:
   m_ObjectHideFlags: 0
