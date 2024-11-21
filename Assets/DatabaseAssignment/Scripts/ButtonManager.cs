@@ -12,15 +12,9 @@ public class ButtonManager : MonoBehaviour
     public Image Errorbox;
     public DBPlayerInfo playerinfo = null;
 
-
     private void Awake()
     {
         playerinfo = FindAnyObjectByType<DBPlayerInfo>();
-    }
-
-    private void Start()
-    {
-  
     }
 
     public void LogoutPanelOn()

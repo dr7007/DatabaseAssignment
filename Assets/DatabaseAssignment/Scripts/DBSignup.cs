@@ -28,6 +28,7 @@ public class DBSignup : MonoBehaviour
     [SerializeField] private TMP_InputField signPhoneNumtmp;            //가입 전화번호
     [SerializeField] private TMP_InputField signEmailtmp;               //가입 이메일
     [SerializeField] private List<TextMeshProUGUI> signErrorMessages = null;   //가입 실패 텍스트
+    [SerializeField] private Image signEpopup;                          //가입 팝업
     [SerializeField] private Image signErrorpopup;                      //가입 실패 팝업
     [SerializeField] private Button signupIDBtn;                        //가입 ID 확인 버튼
     [SerializeField] private Button signupBtn;                          //가입 팝업 버튼
@@ -130,9 +131,16 @@ public class DBSignup : MonoBehaviour
     private IEnumerator FailSignupPopupDelay()
     {
         yield return new WaitForSeconds(2f);
-
         signErrorpopup.gameObject.SetActive(false);
     }
+
+    private IEnumerator SuccessSignupPopupDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        signErrorpopup.gameObject.SetActive(false);
+        signEpopup.gameObject.SetActive(false);
+    }
+
     public void OnClickSignupIDButton()
     {
         StartCoroutine(DuplicateIDCoroutine(userInfo));
@@ -215,7 +223,7 @@ public class DBSignup : MonoBehaviour
                 }
 
                 string signResponse = www.downloadHandler.text; //서버 응답 받기
-
+                Debug.Log(signResponse);
                 if (signResponse == "DuplicateID")   //중복 ID일 시
                 {
                     SignErrorMessages(SignupError.DuplicateID);
@@ -224,6 +232,8 @@ public class DBSignup : MonoBehaviour
                 else
                 {
                     signErrorMessages[2].text = "가입 완료";
+
+                    StartCoroutine(SuccessSignupPopupDelay());
                 }
             }
         }
