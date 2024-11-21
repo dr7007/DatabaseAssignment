@@ -11,7 +11,7 @@ public class ButtonManager : MonoBehaviour
     public Image SignImage;
     public Image Errorbox;
     public DBPlayerInfo playerinfo = null;
-    public GameObject panel;
+
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
-        panel.SetActive(false);
+  
     }
 
     public void LogoutPanelOn()

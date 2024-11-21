@@ -42,6 +42,14 @@ public class DBUserManager : MonoBehaviour
         StartCoroutine(TakeUserInfoCoroutine(pID));
     }
 
+    private void UIUpdate()
+    {
+        nickTmp.text = userinfo.signNickname;
+        goldTmp.text = userinfo.pgold;
+        lvlTmp.text = userinfo.plevel;
+        expTmp.text = userinfo.pexp;
+    }
+
     private IEnumerator TakeUserInfoCoroutine(string _id)
     {
         string uri = "http://127.0.0.1/DAGetInfo.php";
@@ -65,7 +73,7 @@ public class DBUserManager : MonoBehaviour
 
                 userinfo = JsonUtility.FromJson<UserInfo>(data);
 
-
+                UIUpdate();
             }
         }
     }
