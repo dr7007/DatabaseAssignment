@@ -16,10 +16,17 @@ public class DBSignin : MonoBehaviour
     [SerializeField] private Image loginpopup;  //로그인 성공, 실패에 대한 팝업
     [SerializeField] private Button transformsceneBtn;  //mainscene 이동 버튼
 
+    private DBPlayerInfo playerInfo = null;
+
     private string id;  //idtmp에 입력한 값을 사용하기 위해
     private string pw;    //passwordtmp에 입력한 값을 사용하기 위해
 
     private const string loginUri = "http://127.0.0.1/DASignin.php";   //값 가져올 php파일
+
+    private void Start()
+    {
+        playerInfo = FindAnyObjectByType<DBPlayerInfo>();
+    }
 
     private enum SigninError //로그인 오류 발생 시
     {
@@ -110,6 +117,7 @@ public class DBSignin : MonoBehaviour
             else if (response == "Success") //로그인 성공 시
             {
                 errortmp.text = "로그인 성공";
+                playerInfo.uid = id;
                 transformsceneBtn.gameObject.SetActive(true);
             }
             else
