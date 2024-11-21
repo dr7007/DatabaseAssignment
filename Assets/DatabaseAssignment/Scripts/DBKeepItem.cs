@@ -11,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Sprite[] imageSprites;       // 추가된 이미지 배열 (직접 에디터에서 설정 가능)
     [SerializeField] private List<TextMeshProUGUI> keepitems;   //보유량 표시 텍스트
 
+
+
     private void Start()
     {
         // 이미지 배열을 자동으로 로드 (선택적으로 사용)
