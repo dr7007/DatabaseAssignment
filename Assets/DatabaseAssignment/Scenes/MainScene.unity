@@ -626,7 +626,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 101196159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 333753023}
+        m_TargetAssemblyTypeName: BTMG, Assembly-CSharp
+        m_MethodName: RealUnrigister
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &101196159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2298,7 +2310,8 @@ MonoBehaviour:
   Logout: {fileID: 59734065}
   Option: {fileID: 1878265876}
   UserInfoChange: {fileID: 1878265876}
-  Unrigister: {fileID: 0}
+  UnrigisterPanel: {fileID: 930078803}
+  realUnrigister: {fileID: 727925014}
 --- !u!4 &333753024
 Transform:
   m_ObjectHideFlags: 0
@@ -12372,7 +12385,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1757318872}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 333753023}
+        m_TargetAssemblyTypeName: BTMG, Assembly-CSharp
+        m_MethodName: UnrigisterClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1757318872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12862,7 +12887,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1823247957}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 333753023}
+        m_TargetAssemblyTypeName: BTMG, Assembly-CSharp
+        m_MethodName: UnrigisterCancle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823247957
 MonoBehaviour:
   m_ObjectHideFlags: 0
