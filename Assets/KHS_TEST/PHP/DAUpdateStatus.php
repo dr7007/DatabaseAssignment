@@ -5,6 +5,9 @@ $password = "";
 $dbname = "assignmentdb";
 
 $id = $_POST["id"];
+$gold = $_POST["gold"];
+$level = $_POST["lvl"];
+$exp = $_POST["exp"];
 
 $conn = new mysqli($servername,
 				   $username,
@@ -23,12 +26,9 @@ $result = $conn->query($sql);
 
 if($result->num_rows > 0)
 {
-	echo "{";
-	while($row = $result->fetch_assoc())
-	{
-        echo '"signID":"' .$row['id']. '","signPW": "' .$row['pw']. '","signNickname": "' .$row['nick']. '","signPhoneNum": "' .$row['pNum']. '","signEmail": "' .$row['eM']. '","pgold": "' .$row['gold']. '","plevel": "' .$row['lvl']. '","pexp": "' .$row['exp']. '"';
-	}
-	echo "}";
+	$upstat_sql = "INSERT INTO tb_userinfo (id, gold, lvl, exp) VALUES ('" .$id. "', '" .$gold. "', '" .$lvl. "', '" .$exp. "')";
+	$conn->query($upstat_sql);
+	echo "UpdateStatusSuccess";
 }
 
 $conn->close();
