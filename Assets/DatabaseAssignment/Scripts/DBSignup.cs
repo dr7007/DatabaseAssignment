@@ -49,7 +49,7 @@ public class DBSignup : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(userInfo.signPW + " " + signCorrectPW);
+        
         if (userInfo.signPW != signCorrectPW)
         {
             signErrorMessages[1].color = Color.red;
@@ -126,7 +126,7 @@ public class DBSignup : MonoBehaviour
             }
 
             string signResponse = www.downloadHandler.text; //서버 응답 받기
-            Debug.Log(signResponse);
+
             if (signResponse == "DuplicateID")   //중복 ID일 시
             {
                 SignErrorMessages(SignupError.DuplicateID);
