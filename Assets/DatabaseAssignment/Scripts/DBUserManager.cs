@@ -11,57 +11,68 @@ public class DBUserManager : MonoBehaviour
 {
     public class UserInfo
     {
-        public string signNickname { get; set; }
-        public string signID { get; set; }
-        public string signPW { get; set; }
-        public string signPhoneNum { get; set; }
-        public string signEmail { get; set; }
+        public string signNickname;
+        public string signID;
+        public string signPW;
+        public string signPhoneNum;
+        public string signEmail;
+        public string pgold;
+        public string plevel;
+        public string pexp;
     }
 
-    [SerializeField]
-    private DBPlayerInfo playerinfo;
+    [SerializeField] private DBPlayerInfo playerinfo;
+    [SerializeField] private string pID = string.Empty;
+    [SerializeField] private int gold, exp = 0;
+    [SerializeField] private int level = 1;
 
-    private UserInfo userinfo = new UserInfo();
+    [SerializeField] private TextMeshProUGUI nickTmp = null;
+    [SerializeField] private TextMeshProUGUI goldTmp = null;
+    [SerializeField] private TextMeshProUGUI lvlTmp = null;
+    [SerializeField] private TextMeshProUGUI expTmp = null;
 
 
-    private IEnumerator TakeUserInfoCoroutine(UserInfo _userInfo)
+    private UserInfo userinfo;
+
+
+    private void Start()
     {
-        string uri = "http://127.0.0.1/DAUserState.php";
+        playerinfo = FindAnyObjectByType<DBPlayerInfo>();
+        pID = playerinfo.uid;
+        StartCoroutine(TakeUserInfoCoroutine(pID));
+    }
+
+    private IEnumerator TakeUserInfoCoroutine(string _id)
+    {
+        string uri = "http://127.0.0.1/DAGetInfo.php";
 
         WWWForm form = new WWWForm();
-        form.AddField("id", _userInfo.signID);
-        form.AddField("pw", _userInfo.signPW);
-        form.AddField("nick", _userInfo.signNickname);
-        form.AddField("pNum", _userInfo.signPhoneNum);
-        form.AddField("eM", _userInfo.signEmail);
+        form.AddField("id", _id);
 
 
         using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
         {
             yield return www.SendWebRequest();
 
-            if (www.result == UnityWebRequest.Result.ProtocolError)  //Protocol 에러
+            if (www.result == UnityWebRequest.Result.ProtocolError)
             {
-                
-                yield break;
-            }
-
-            string signResponse = www.downloadHandler.text; //서버 응답 받기
-
-            if (signResponse == "")   //중복 ID일 시
-            {
-                
+                Debug.Log(www.error);
             }
             else
             {
+                Debug.Log(www.downloadHandler.text);
+                string data = www.downloadHandler.text;
+
+                userinfo = JsonUtility.FromJson<UserInfo>(data);
+
 
             }
         }
     }
 
-    private void Start()
+    public void PrintUserInfo()
     {
-        userinfo.signID = playerinfo.uid;
+        Debug.LogFormat("NickName: {0}, Gold: {1}, Level: {2}, Email: {3}",
+            userinfo.signNickname, userinfo.pgold, userinfo.plevel, userinfo.pexp);
     }
-
 }
