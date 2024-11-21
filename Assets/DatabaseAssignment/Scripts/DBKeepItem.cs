@@ -3,6 +3,9 @@ using UnityEngine;
 
 using System.Collections.Generic;
 using TMPro;
+using System;
+using System.Collections;
+using UnityEngine.Networking;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -11,12 +14,52 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Sprite[] imageSprites;       // 추가된 이미지 배열 (직접 에디터에서 설정 가능)
     [SerializeField] private List<TextMeshProUGUI> keepitems;   //보유량 표시 텍스트
 
+    [SerializeField] private string itemHash = string.Empty;
 
 
     private void Start()
     {
+        StartCoroutine(SetInvenCoroutine(FindAnyObjectByType<DBPlayerInfo>().uid));
+        StartCoroutine(StartGenerateItem(itemHash));
         // 이미지 배열을 자동으로 로드 (선택적으로 사용)
         LoadImagesFromResources();
+    }
+
+    private IEnumerator SetInvenCoroutine(string _id)
+    {
+        string uri = "http://127.0.0.1/DAGetInven.php";
+
+        WWWForm form = new WWWForm();
+        form.AddField("id", _id);
+
+
+        using (UnityWebRequest www = UnityWebRequest.Post(uri, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+                string response = www.downloadHandler.text;
+
+                if (response == "NewInvenSuccess")
+                {
+                    itemHash = string.Empty;
+                }
+                else
+                {
+                    itemHash += response;
+                }
+            }
+        }
+    }
+    private IEnumerator StartGenerateItem(string _itemHash)
+    {
+        yield return null;
     }
 
     // 버튼 클릭 시 호출
@@ -45,6 +88,8 @@ public class InventoryManager : MonoBehaviour
 
             // 랜덤하게 이미지 부여
             AssignRandomImageToItem(newItem);
+            newItem.GetComponentInChildren<ItemImage>().ItemPOS = "Slot" + slotIndex.ToString();
+            SetItemHash(newItem.GetComponentInChildren<ItemImage>());
 
             Debug.Log($"아이템이 슬롯 {slotIndex}에 추가되었습니다!");
         }
@@ -52,6 +97,11 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("해당 슬롯이 이미 차있습니다.");
         }
+    }
+
+    private void SetItemHash(ItemImage _item)
+    {
+
     }
 
     // 첫 번째 빈 슬롯에 아이템 추가
@@ -87,7 +137,8 @@ public class InventoryManager : MonoBehaviour
         }
 
         // 랜덤으로 이미지 선택
-        int randomIndex = Random.Range(0, imageSprites.Length);
+        int randomIndex = UnityEngine.Random.Range(0, imageSprites.Length);
+        item.GetComponentInChildren<ItemImage>().ItemID = "Item" + randomIndex.ToString();
         Sprite randomImage = imageSprites[randomIndex];
 
         // 생성된 아이템의 Source Image 컴포넌트에 할당
