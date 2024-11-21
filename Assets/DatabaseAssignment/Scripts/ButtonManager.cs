@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class ButtonManager : MonoBehaviour
     public Image SignImage;
     public Image Errorbox;
     public DBPlayerInfo playerinfo = null;
+    public GameObject panel;
 
     private void Awake()
     {
         playerinfo = FindAnyObjectByType<DBPlayerInfo>();
+    }
+
+    private void Start()
+    {
+        panel.SetActive(false);
     }
 
     public void LogoutPanelOn()
@@ -49,5 +56,13 @@ public class ButtonManager : MonoBehaviour
     public void ToMainScene()  // 로그인 성공 후 체크 표시 누르면 main씬을 불러옴
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void Popup()
+    {
+        //panel.SetActive(true);
+        
+        // TexTTT.InventoryT(string ) //// InventoryInfo_Panel 오브젝트안에 들어있는 TexTTT스크립트의 InventoryT함수를 가져온다.
+        // InventoryT 함수는 () 안의 변수를 각 Text란에 출력
     }
 }
